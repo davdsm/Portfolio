@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export const Footer = ({ menu, handleDark }) => {
+export const Footer = ({ menu, handleDark }: { menu: Array<object>; handleDark: Function }) => {
   const year = new Date().getFullYear();
   const router = useRouter();
 
   return (
-    <footer className="container mx-auto px-4 sm:py-10 z-40 relative max-sm:py-5">
+    <footer className="entry container mx-auto px-4 sm:py-10 z-40 relative max-sm:py-5">
       <div className="p-4 bg-white rounded-lg drop-shadow-2xl md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © {year}{" "}
@@ -18,7 +18,7 @@ export const Footer = ({ menu, handleDark }) => {
         <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
           <li className="item center flex">
             <button
-              onClick={handleDark}
+              onClick={() => handleDark()}
               className="mr-4 text-slate-900 dark:text-slate-50"
             >
               <svg

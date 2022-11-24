@@ -37,8 +37,9 @@ export const Layout = ({ children }: MyComponentProps) => {
     path: "/portfolio"
   }
   ];
+
   return (
-    <main className="bg-slate-100 dark:bg-slate-900">
+    <main className="bg-slate-100 dark:bg-slate-900 min-h-screen flex flex-col items-between justify-between">
       <Header handleDark={handleDark} menu={menu} />
       {children}
       <Footer handleDark={handleDark} menu={menu} />

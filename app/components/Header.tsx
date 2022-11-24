@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Logo from "/public/favicon.png";
 import Link from "next/link";
 
-export const Header = ({ menu, handleDark }) => {
+export const Header = ({ menu, handleDark }: { menu: Array<object>; handleDark: Function }) => {
   const [Hamburger, setHamburger] = useState(false);
   const router = useRouter();
 
@@ -35,7 +35,7 @@ export const Header = ({ menu, handleDark }) => {
             </span>
           </Link>
           <button
-            onClick={handleDark}
+            onClick={() => handleDark()}
             className="text-slate-900 dark:text-slate-50"
           >
             <svg
