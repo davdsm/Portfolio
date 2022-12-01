@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Photo from '/public/photo.jpg'
 
-export const Profile = () => (
+export const Profile = ({ img, name, work }: { img: string, name: String, work: String }) => (
 
     <div className="w-full bg-white flex flex-col items-center h-full border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className="flex flex-col items-center justify-center pb-10 h-full">

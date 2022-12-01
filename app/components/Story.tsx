@@ -39,19 +39,19 @@ export const Story = () => {
                 <div className="p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" role="tabpanel" aria-labelledby="stats-tab">
                     <dl className="w-full flex justify-center p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
                         <div className="mx-4 flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl font-extrabold">{Counter.years}</dt>
+                            <dt className="mb-2 text-3xl font-extrabold">{Counter.years || 0}</dt>
                             <dd className="font-light text-gray-500 dark:text-gray-400">Years</dd>
                         </div>
                         <div className="mx-4 flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl font-extrabold">{Counter.hours}</dt>
+                            <dt className="mb-2 text-3xl font-extrabold">{Counter.hours || '00'}</dt>
                             <dd className="font-light text-gray-500 dark:text-gray-400">Hours</dd>
                         </div>
                         <div className="mx-4 flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl font-extrabold">{Counter.minutes}</dt>
+                            <dt className="mb-2 text-3xl font-extrabold">{Counter.minutes || '00'}</dt>
                             <dd className="font-light text-gray-500 dark:text-gray-400">Minutes</dd>
                         </div>
                         <div className="mx-4 flex flex-col items-center justify-center">
-                            <dt className="mb-2 text-3xl font-extrabold">{Counter.seconds}</dt>
+                            <dt className="mb-2 text-3xl font-extrabold">{Counter.seconds || '00'}</dt>
                             <dd className="font-light text-gray-500 dark:text-gray-400">Seconds</dd>
                         </div>
                     </dl>

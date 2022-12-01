@@ -1,9 +1,15 @@
+import { info } from "console";
+import { useEffect, useState } from "react";
 import HelloCard from "../components/HelloCard";
 import { Profile } from "../components/Profile";
 import SocialCard from "../components/SocialCard";
 import { Story } from "../components/Story";
+import { getInfo } from "../redux/calls";
 
 export const Home = () => {
+
+  const [Info, setInfo] = useState<any>(false)
+
   const socials = [
     {
       name: 'GitHub',
@@ -41,22 +47,39 @@ export const Home = () => {
       popular: false,
     },
   ]
+
+  const handleInfo = async () => {
+    const data = await getInfo();
+    setInfo(data)
+  }
+
+  useEffect(() => {
+    if (!Info) {
+      handleInfo()
+    } else {
+      console.log(Info)
+    }
+  }, [Info])
+
+
   return (
     <div className="container mx-auto px-4 w-full">
-      <div className="a-delay sm:flex justify-between items-center h-full flex-wrap">
-        <div className="entry w-3/5 max-sm:w-full">
-          <HelloCard />
+      {Info && (
+        <div className="a-delay sm:flex justify-between items-center h-full flex-wrap">
+          <div className="entry w-3/5 max-sm:w-full">
+            <HelloCard title={Info.find((item: any) => item.key === 'title').value} description={Info.find((item: any) => item.key === 'description').value} />
+          </div>
+          <div className="entry w-2/6 flex justify-end max-sm:w-full" style={{ height: '430px' }}>
+            <Profile />
+          </div>
+          <div className="mt-10 entry w-2/6 flex justify-end max-sm:w-full">
+            <SocialCard socials={socials} />
+          </div>
+          <div className="mt-10 entry w-3/5 max-sm:w-full">
+            <Story />
+          </div>
         </div>
-        <div className="entry w-2/6 flex justify-end max-sm:w-full" style={{ height: '430px' }}>
-          <Profile />
-        </div>
-        <div className="mt-10 entry w-2/6 flex justify-end max-sm:w-full">
-          <SocialCard socials={socials} />
-        </div>
-        <div className="mt-10 entry w-3/5 max-sm:w-full">
-          <Story />
-        </div>
-      </div>
+      )}
     </div>
   );
 };
