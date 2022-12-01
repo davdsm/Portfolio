@@ -56,8 +56,6 @@ export const Home = () => {
   useEffect(() => {
     if (!Info) {
       handleInfo()
-    } else {
-      console.log(Info)
     }
   }, [Info])
 
@@ -70,7 +68,7 @@ export const Home = () => {
             <HelloCard title={Info.find((item: any) => item.key === 'title').value} description={Info.find((item: any) => item.key === 'description').value} />
           </div>
           <div className="entry w-2/6 flex justify-end max-sm:w-full" style={{ height: '430px' }}>
-            <Profile />
+            <Profile name={Info.find((item: any) => item.key === "name").value} work={Info.find((item: any) => item.key === "work").value} img={Info.find((item: any) => item.key === "photo")} />
           </div>
           <div className="mt-10 entry w-2/6 flex justify-end max-sm:w-full">
             <SocialCard socials={socials} />
